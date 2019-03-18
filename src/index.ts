@@ -45,7 +45,7 @@ export default class FsPublisher implements ContainerPublisher {
     log.info(`[Path : ${url}]`)
   }
 
-  /**
+ /**
    * [iOS Specific]
    * Patch ElectrodeContainer Info.plist to update CFBundleShortVersionString 
    * with the Container version being published
@@ -61,7 +61,7 @@ export default class FsPublisher implements ContainerPublisher {
     if (fs.existsSync(infoPlistPath)) {
       const infoPlist = fs.readFileSync(infoPlistPath).toString()
       const patchedInfoPlist = infoPlist.replace(
-        '<key>CFBundleShortVersionString</key>\n\t<string>1.0</string>', 
+        new RegExp('<key>CFBundleShortVersionString<\/key>\\n\\t<string>.+<\/string>'), 
         `<key>CFBundleShortVersionString</key>\n\t<string>${containerVersion}</string>`)
       fs.writeFileSync(infoPlistPath, patchedInfoPlist) 
     }
