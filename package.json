@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "description": "Electrode Native File System Container Publisher",
   "main": "./dist/index.js",
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "homepage": "http://www.electrode.io",
   "repository": {
     "type": "git",
@@ -11,7 +15,12 @@
   "bugs": {
     "url": "https://github.com/electrode-io/ern-container-publisher-fs/issues"
   },
-  "keywords": ["electrode", "ern", "react-native", "ern-container-publisher"],
+  "keywords": [
+    "electrode",
+    "ern",
+    "react-native",
+    "ern-container-publisher"
+  ],
   "contributors": [
     {
       "name": "Benoit Lemaire",

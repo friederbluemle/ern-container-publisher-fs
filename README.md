@@ -4,42 +4,41 @@ This publisher can be used to publish Android and iOS Electrode Native Container
 
 ## Usage
 
-### **With `ern publish-container` CLI command**
+### With `ern publish-container` CLI command
 
-**Required**
+#### Required
 
 - `--url/-u` : Path to a local directory on the machine running the `publish-container` command. The directory must either not exist or be empty.
 - `--publisher/-p` : `fs`
 - `--platform` : `android` | `ios`
 
-**Optional**
+#### Optional
 
-- `--containerPath` : Path to the Container to publish.  
+- `--containerPath` : Path to the Container to publish.\
 Defaults to the Electrode Native default Container Generation path (`~/.ern/containergen/out/[platform]` if not changed through config)
 
-- `--containerVersion/-v` : Version of the Container to publish.  
+- `--containerVersion/-v` : Version of the Container to publish.\
 Default to `1.0.0`
 
  The `ern publish-container` CLI command can be used as follow to manually publish a Container using the fs publisher :
 
-```bash
-$ ern publish-container --containerPath [pathToContainer] -p fs -u [pathToDirectory] -v [containerVersion] ---platform [android|ios]
+```sh
+ern publish-container --containerPath [pathToContainer] -p fs -u [pathToDirectory] -v [containerVersion] ---platform [android|ios]
 ```
 
-### **With Cauldron**
+### With Cauldron
 
-**Required**
+#### Required
 
 - `--publisher/-p` : `fs`
 - `--url/-u` : Path to a local directory on the machine running the `cauldron regen-container` command. The directory must either not exist or be empty.
 
-**Optional**
-
+#### Optional
 
 To automatically publish Cauldron generated Containers of a target native application and platform, the `ern cauldron add publisher` command can be used as follow :
 
-```bash
-$ ern cauldron add publisher -p fs -u [pathToDirectory]
+```sh
+ern cauldron add publisher -p fs -u [pathToDirectory]
 ```
 
 This will result in the following publisher entry in Cauldron :
@@ -53,7 +52,7 @@ This will result in the following publisher entry in Cauldron :
 
 This is only needed once. Once the configuration for the publisher is stored in Cauldron, any new Cauldron generated Container will be published to fs.
 
-### **Programatically**
+#### Programmatically
 
 ```js
 import FsPublisher from 'ern-container-publisher-fs'
