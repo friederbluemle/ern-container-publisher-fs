@@ -11,7 +11,12 @@
   "bugs": {
     "url": "https://github.com/electrode-io/ern-container-publisher-fs/issues"
   },
-  "keywords": ["electrode", "ern", "react-native", "ern-container-publisher"],
+  "keywords": [
+    "electrode",
+    "ern",
+    "react-native",
+    "ern-container-publisher"
+  ],
   "contributors": [
     {
       "name": "Benoit Lemaire",

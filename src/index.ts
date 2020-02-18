@@ -35,7 +35,7 @@ export default class FsPublisher implements ContainerPublisher {
         )
       }
     }
-  
+
     shell.mkdir('-p', url)
     shell.cp('-Rf', path.join(containerPath, '{.*,*}'), url)
     if (platform === 'ios') {
@@ -47,23 +47,23 @@ export default class FsPublisher implements ContainerPublisher {
 
  /**
    * [iOS Specific]
-   * Patch ElectrodeContainer Info.plist to update CFBundleShortVersionString 
+   * Patch ElectrodeContainer Info.plist to update CFBundleShortVersionString
    * with the Container version being published
    */
-  public patchContainerInfoPlistWithVersion({ 
-    containerPath, 
+  public patchContainerInfoPlistWithVersion({
+    containerPath,
     containerVersion
-  } : { 
-    containerPath: string, 
+  } : {
+    containerPath: string,
     containerVersion: string
   }) {
     const infoPlistPath = path.join(containerPath, 'ElectrodeContainer', 'Info.plist')
     if (fs.existsSync(infoPlistPath)) {
       const infoPlist = fs.readFileSync(infoPlistPath).toString()
       const patchedInfoPlist = infoPlist.replace(
-        new RegExp('<key>CFBundleShortVersionString<\/key>\\n\\t<string>.+<\/string>'), 
+        new RegExp('<key>CFBundleShortVersionString<\/key>\\n\\t<string>.+<\/string>'),
         `<key>CFBundleShortVersionString</key>\n\t<string>${containerVersion.replace('-raw', '')}</string>`)
-      fs.writeFileSync(infoPlistPath, patchedInfoPlist) 
+      fs.writeFileSync(infoPlistPath, patchedInfoPlist)
     }
   }
 }
