@@ -1,5 +1,7 @@
 # Electrode Native File System Container Publisher
 
+[![ci][1]][2]
+
 This publisher can be used to publish Android and iOS Electrode Native Containers to a local file system directory.
 
 ## Usage
@@ -66,3 +68,6 @@ publisher.publish({
   url
 })
 ```
+
+[1]: https://github.com/electrode-io/ern-container-publisher-fs/workflows/ci/badge.svg
+[2]: https://github.com/electrode-io/ern-container-publisher-fs/actions
